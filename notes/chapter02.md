@@ -24,7 +24,7 @@
 
 - **交叉验证法(cross validation)**：先将数据集$D$分成$k$个大小相似的互斥子集，即$D=D_1\cup D_2\cup \cdots \cup D_k, D_i \cap D_j = \emptyset(i \ne j)$,每次使用$k-1$个子集的并集作为训练集，余下的那个子集作为测试集，从而进行$k$此训练去平均值（通常又称$k$折交叉验证，$k$一般取10，其他常用取值5，20）
 
-  ![1559280496714](C:\Users\CMD\AppData\Roaming\Typora\typora-user-images\1559280496714.png)关于数据集$D$的划分，为减少因样本划分不同而引入的差别，$k$折交叉验证通常要随机使用不同的划分重复$p$次，得到$p$次$k$折交叉验证
+  ![2.1](https://github.com/zzhhch/resource/blob/master/notes/photos/2.1.png?raw=true)关于数据集$D$的划分，为减少因样本划分不同而引入的差别，$k$折交叉验证通常要随机使用不同的划分重复$p$次，得到$p$次$k$折交叉验证
 
   **留一法(Leave-One-Out,LOO)**：令$k=m$，留一法不受随机样本划分方式的影响，评估的结果一般认为比较精准，但是当$m$特别的的时候，计算开销可能是难以忍受的
 
@@ -85,7 +85,7 @@
 
 - 对于二分类问题，可以划分为**真正例(true positive)  假正例(false positive)  真反例(true negative)  假反例(false negative)**,分别用**TP FP TN FN**表示，且$TP+FP+TN+FN=样例总数$ 
 
-  ![1559290458756](C:\Users\CMD\AppData\Roaming\Typora\typora-user-images\1559290458756.png)
+  ![2.2](https://github.com/zzhhch/resource/blob/master/notes/photos/2.2.png?raw=true)
 
   查准率和查全率分别定义为
   $$
@@ -98,7 +98,7 @@
 
   查准率和查全率是一对矛盾的度量，可以用P-R曲线描述
   
-  ![1559543399356](C:\Users\CMD\AppData\Roaming\Typora\typora-user-images\1559543399356.png)
+  ![2.3](https://github.com/zzhhch/resource/blob/master/notes/photos/2.3.png?raw=true)
   
   当一个学习器的P-R曲线被另一个包住，则后者的性能优于前者，平衡点(Break-Event Point,BEP)作为查准率，查全率的性能度量，但是BEP过于简化，更常用的是$F 1$度量
   $$
@@ -132,7 +132,7 @@
   TPR=\frac{TP}{TP+FN}\\
   FPR=\frac{FP}{TN+FP}
   $$
-  ![1559546159553](C:\Users\CMD\AppData\Roaming\Typora\typora-user-images\1559546159553.png)对角线对应于“随机猜测”模型，点$(0,1)$对应于将正例排在所有反例前面则对应于”完美模型“
+  ![1559546159553](https://github.com/zzhhch/resource/blob/master/notes/photos/2.4.png?raw=true)对角线对应于“随机猜测”模型，点$(0,1)$对应于将正例排在所有反例前面则对应于”完美模型“
 
   **性能度量** 若一个学习器的ROC被另一个学习器的曲线包住，则后者的性能优于前者，若交叉，则用AUC（Area Under ROC Curve）进行比较，AUC可以通过ROC曲线下的各部分面积求得，假设ROC曲线由坐标$\{(x_1,y_1),(x_2,y_2),\cdots,(x_m,y_m)\}$,则AUC可估算为
   $$
@@ -151,7 +151,7 @@
 
 - 为权衡不同类型错误造成的不同损失，可为错误赋予”非均等代价“，以二分类任务为例，设定一个”代价矩阵“
 
-  ![1559549409963](C:\Users\CMD\AppData\Roaming\Typora\typora-user-images\1559549409963.png)
+  ![1559549409963](https://github.com/zzhhch/resource/blob/master/notes/photos/2.5.png?raw=true)
 
   $cost_{ij}$表示将第$i$类样本预测为第$j$类样本的代价，$cost_{ii}=0$,若将第$0$类判别为第$1$类所造成的损失更大，则$cost_{01}>cost_{10}$ 
 

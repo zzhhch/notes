@@ -57,7 +57,7 @@
 
   则假设空间大小规模为 $4\times3\times3+1=37$ 
 
-  ![1559203970304](C:\Users\CMD\AppData\Roaming\Typora\typora-user-images\1559203970304.png)
+  ![1.1](https://github.com/zzhhch/resource/blob/master/notes/photos/1.1.png?raw=true)
 
   **版本空间(version space)**：存在一个与训练集一致的”假设集合“
 
