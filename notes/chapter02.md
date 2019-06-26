@@ -2,7 +2,7 @@
 
 ## 2.1 经验误差与过拟合
 
-- **错误率和精度**：$m$个样本中有$a$个样本分类错误，错误率$E=a/ m$，精度 = 1 - 错误率
+- **错误率和精度**：$m$个样本中有$a$个样本分类错误，错误率$E=a/ m，精度 = 1 - 错误率$
 - **误差**：	
   - 训练误差（经验误差）：学习器在训练集上的误差
   - 泛化误差：在新样本上的误差
@@ -26,7 +26,7 @@
 
   ![2.1](https://github.com/zzhhch/resource/blob/master/notes/photos/2.1.png?raw=true)关于数据集$D$的划分，为减少因样本划分不同而引入的差别，$k$折交叉验证通常要随机使用不同的划分重复$p$次，得到$p$次$k$折交叉验证
 
-  **留一法(Leave-One-Out,LOO)**：令$k=m$，留一法不受随机样本划分方式的影响，评估的结果一般认为比较精准，但是当$m$特别的的时候，计算开销可能是难以忍受的
+  **留一法(Leave-One-Out,LOO)**：令$k=m$，留一法不受随机样本划分方式的影响，评估的结果一般认为比较精准，但是当$m$特别大的的时候，计算开销可能是难以忍受的
 
 ### 2.2.3 自助法
 
@@ -75,7 +75,7 @@
   $$
 
   $$
-  acc(f;d) = \int_{x \sim D} \prod(f(x) = y)p(x)dx\\
+  acc(f;D) = \int_{x \sim D} \prod(f(x) = y)p(x)dx\\
   =1-E(f;D)
   $$
 
@@ -140,7 +140,7 @@
   $$
   给定$m^+$个正例和$m^-$个反例，令$D^+$和$D^-$分别表示正，反例集合，则排序"损失"（loss)定义为
   $$
-  l_{rank}=\frac{1}{m^+m^-}\sum_{x^+ \in D^+}\sum_{x^- \in D^-}\parallel((f(x^+)<f(x^-))+\frac{1}{2}\parallel(f(x^+)=f(x^-)))
+  l_{rank}=\frac{1}{m^+m^-}\sum_{x^+ \in D^+}\sum_{x^- \in D^-}(\parallel((f(x^+)<f(x^-))+\frac{1}{2}\parallel(f(x^+)=f(x^-)))
   $$
   即考虑每一对正、反例，若正例的预测值小于反例，则记一个”罚分“，若相等，则记0.5个”罚分“，$l_{rank}$对应的是ROC曲线之上的面积
   $$
@@ -162,4 +162,19 @@
     E(f;D;cost)=\frac{1}{m}(\sum_{x_i \in D^+} \parallel(f(x_i) \ne y_i)\times cost_{01}+\sum_{x_i \in D^-}\parallel(f(x_i)\ne y_i)\times cost_{10})
     $$
     
+  - 代价曲线
+    $$
+    P(+)cost=\frac{p\times cost_{01}}{p\times cost_{01}+(1-p)\times cost_{10}}
+    $$
+    其中$p$是样例为正的概率
+    $$
+    cost_{norm}=\frac{FNR\times p \times cost_{01}+FPR\times (1-p)\times cost_{10}}{p\times cost_{01}+(1-p)\times cost_{10}}
+    $$
+    
+
+![](https://github.com/zzhhch/resource/blob/master/notes/photos/2.6.png?raw=true)
+
+## 2.4 比较检验
+
+### 2.4.1 假设检验
 
